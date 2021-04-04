@@ -1,8 +1,10 @@
 import csv
 import pandas as pd
 import numpy as np
+pd.options.mode.chained_assignment = None
 
 TIME_WEIGHT = 15
+TOP = 3
 
 
 def float_try_parse(x):
@@ -82,7 +84,7 @@ weights.append(TIME_WEIGHT)
 
 data_columns = range(2, joined.shape[1])
 data = standardize_df(joined, data_columns)
-top_rows = weight_based_opt(joined, weights, data_columns, top=3)
+top_rows = weight_based_opt(joined, weights, data_columns, top=TOP)
 
 print(top_rows)
 
